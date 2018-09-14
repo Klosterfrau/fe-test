@@ -1,15 +1,22 @@
 import Vue from "vue";
-import FeTest from "./FeTest.vue";
+import FeTest from "./components/FeTest.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store/store";
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css'
-Vue.use(Vuetify)
+import VueGoodTable from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+
+
+Vue.use(Vuetify);
+Vue.use(VueGoodTable);
+
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: h => h(FeTest)
-}).$mount("#app");
+const app = new Vue({
+    el: '#app',
+    store,
+    router,
+    render: h => h(FeTest)
+});

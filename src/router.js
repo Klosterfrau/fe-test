@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Aufgabe from "./views/Aufgabe.vue";
-import Workplace from "./views/Workplace.vue";
+import Aufgabe from "./components/Aufgabe.vue";
+import Workplace from "./components/Workplace.vue";
 
 Vue.use(Router);
 

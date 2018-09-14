@@ -3,16 +3,6 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-/*
- Sample Cat Object
-{
-  id: 1,
-  name: 'Kitty 1',
-  desc: 'Nice Kitty 1',
-  votes: 0
-}
-*/
-
 const store = new Vuex.Store({
   state: {
     cats: {},
@@ -51,3 +41,4 @@ for (let i = 0; i < 20; i++) {
 store.commit("addCats", mockCats);
 
 export default store;
+
