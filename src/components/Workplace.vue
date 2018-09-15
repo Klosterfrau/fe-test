@@ -1,7 +1,7 @@
 <template>
     <v-container fluid grid-list-md>
         <v-layout row wrap>
-            <v-flex d-flex xs12 sm4 md4>
+            <v-flex d-flex xs12 sm4 md2>
                 <vue-good-table
                         title="Katzen"
                         :columns="columns"
@@ -17,21 +17,20 @@
                 />
             </v-flex>
 
-            <v-flex d-flex xs12 sm6 md4>
-                <div class="initial katzen-info">
+            <v-flex d-flex xs12 sm6 md2 class="katzen-info">
+                <div class="initial">
                     <span class="katzen-info">{{ $store.getters.getCatDesc }}</span>
 
                     <p class="vote">{{ $store.getters.getCatVote }}</p>
-                    <!--<p class="vote">{{ $store.getters.getCatVoteFromId(0) }}</p>-->
 
-                    <div>
+                    <div class="buttons">
                         <v-btn small color="primary" v-on:click="incrementCatVote">
                             <span style="display: none">{{ $store.getters.getCatDesc }}</span>
-                            +
+                            <span class="button-text">+</span>
                         </v-btn>
                         <v-btn small color="error" v-on:click="decrementCatVote">
                             <span style="display: none">{{ $store.getters.getCatDesc }}</span>
-                            &minus;
+                            <span class="button-text">&minus;</span>
                         </v-btn>
 
                     </div>
@@ -77,16 +76,22 @@
 
 <style>
     .katzen-info {
-        background-color: white !important;
-        vertical-align: middle;
-        height: 125px;
+        background-color: white;
+        height: 140px;
         color: #606266;
         text-align: center;
-        font-size: 20px;
+        font-size: 125%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .button-text{
+        font-size: 145%;
     }
 
     .vote {
         text-align: center;
         font-weight: bold;
+        font-size: 145%;
     }
 </style>

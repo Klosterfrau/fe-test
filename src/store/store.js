@@ -27,12 +27,17 @@ const store = new Vuex.Store({
         },
         incrementStateCats(state, id) {
             state.cats[id].votes++;
+            state.catVote = state.cats[id].votes
         },
         decrementCatVoteStateCats(state, id) {
             if (state.cats[id].votes > 0) {
                 state.cats[id].votes--;
             }
+            state.catVote = state.cats[id].votes
         },
+        setCatVote(state, id) {
+            state.catVote = state.cats[id].votes
+        }
     },
     getters: {
         getCats(state) {
@@ -40,9 +45,6 @@ const store = new Vuex.Store({
         },
         getCatDesc: state => state.catDesc,
         getCatVote: state => state.catVote,
-        getCatVoteFromId(id) {
-            return $state.cats[id].votes;
-        },
     }
 });
 
@@ -58,8 +60,6 @@ for (let i = 0; i < 20; i++) {
 
 store.commit("addCats", mockCats);
 store.commit("setCatDesc", 0);
-store.commit("incrementStateCats", 0);
+store.commit("setCatVote", 0);
 
 export default store;
-
-console.log(store.state.cats[0].votes);
